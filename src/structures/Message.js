@@ -469,7 +469,7 @@ class Message extends Base {
 
   /**
    * Edits the content of the message.
-   * @param {StringResolvable|APIMessage} [content] The new content for the message
+   * @param {string|APIMessage} [content] The new content for the message
    * @param {MessageEditOptions|MessageEmbed} [options] The options to provide
    * @returns {Promise<Message>}
    * @example
@@ -500,7 +500,10 @@ class Message extends Base {
    * }
    */
   async crosspost() {
-    await this.client.api.channels(this.channel.id).messages(this.id).crosspost.post();
+    await this.client.api
+      .channels(this.channel.id)
+      .messages(this.id)
+      .crosspost.post();
     return this;
   }
 

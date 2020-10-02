@@ -53,7 +53,7 @@ module.exports = {
   escapeMarkdown: Util.escapeMarkdown,
   fetchRecommendedShards: Util.fetchRecommendedShards,
   resolveColor: Util.resolveColor,
-  resolveString: Util.resolveString,
+  verifyString: Util.verifyString,
   splitMessage: Util.splitMessage,
 
   // Structures
