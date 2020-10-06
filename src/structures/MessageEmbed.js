@@ -298,7 +298,11 @@ class MessageEmbed {
    * @returns {MessageEmbed}
    */
   setAuthor(name, iconURL, url) {
-    this.author = { name: Util.verifyString(name, new RangeError('EMBED_AUTHOR_NAME')), iconURL, url };
+    this.author = {
+      name: Util.verifyString(name, new RangeError('EMBED_INVALID_TYPE', 'author name', 'string')),
+      iconURL: iconURL ? String(iconURL) : undefined,
+      url: url ? String(url) : undefined,
+    };
     return this;
   }
 
@@ -318,8 +322,7 @@ class MessageEmbed {
    * @returns {MessageEmbed}
    */
   setDescription(description) {
-    description = Util.verifyString(description, new RangeError('EMBED_DESCRIPTION'));
-    this.description = description;
+    this.description = Util.verifyString(description, new RangeError('EMBED_INVALID_TYPE', 'description', 'string'));
     return this;
   }
 
@@ -341,7 +344,7 @@ class MessageEmbed {
    * @returns {MessageEmbed}
    */
   setImage(url) {
-    this.image = { url };
+    this.image = { url: String(url) };
     return this;
   }
 
@@ -351,7 +354,7 @@ class MessageEmbed {
    * @returns {MessageEmbed}
    */
   setThumbnail(url) {
-    this.thumbnail = { url };
+    this.thumbnail = { url: String(url) };
     return this;
   }
 
@@ -372,8 +375,7 @@ class MessageEmbed {
    * @returns {MessageEmbed}
    */
   setTitle(title) {
-    title = Util.verifyString(title, new RangeError('EMBED_TITLE'));
-    this.title = title;
+    this.title = Util.verifyString(title, new RangeError('EMBED_INVALID_TYPE', 'title', 'string'));
     return this;
   }
 
@@ -383,7 +385,7 @@ class MessageEmbed {
    * @returns {MessageEmbed}
    */
   setURL(url) {
-    this.url = url;
+    this.url = String(url);
     return this;
   }
 
@@ -426,8 +428,8 @@ class MessageEmbed {
    * @returns {EmbedField}
    */
   static normalizeField(name, value, inline = false) {
-    name = Util.verifyString(name, new RangeError('EMBED_FIELD_NAME'), false);
-    value = Util.verifyString(value, new RangeError('EMBED_FIELD_VALUE'), false);
+    name = Util.verifyString(name, new RangeError('EMBED_INVALID_TYPE', 'field name', 'non-empty string'), false);
+    value = Util.verifyString(value, new RangeError('EMBED_INVALID_TYPE', 'field value', 'non-empty string'), false);
     return { name, value, inline };
   }
 

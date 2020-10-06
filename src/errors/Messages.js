@@ -35,12 +35,7 @@ const Messages = {
   COLOR_RANGE: 'Color must be within the range 0 - 16777215 (0xFFFFFF).',
   COLOR_CONVERT: 'Unable to convert color to a number.',
 
-  EMBED_TITLE: 'MessageEmbed title must be a string.',
-  EMBED_FIELD_NAME: 'MessageEmbed field names must be non-empty strings.',
-  EMBED_FIELD_VALUE: 'MessageEmbed field values must be non-empty strings.',
-  EMBED_FOOTER_TEXT: 'MessageEmbed footer text must be a string.',
-  EMBED_DESCRIPTION: 'MessageEmbed description must be a string.',
-  EMBED_AUTHOR_NAME: 'MessageEmbed author name must be a string.',
+  EMBED_INVALID_TYPE: (location, must) => `MessageEmbed ${location} must be ${must}.`,
 
   FILE_NOT_FOUND: file => `File could not be found: ${file}`,
 
