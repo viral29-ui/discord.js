@@ -636,11 +636,11 @@ class Guild extends Base {
   }
 
   /**
-   * Returns the GuildMember form of a User object, if the user is present in the guild.
+   * Resolves a GuildMember from the provided user based on the guilds member cache.
    * @param {UserResolvable} user The user that you want to obtain the GuildMember of
    * @returns {?GuildMember}
    * @example
-   * // Get the guild member of a user
+   * // Resolve a GuildMember of an arbitrary guild from the message author
    * const member = guild.member(message.author);
    */
   member(user) {
