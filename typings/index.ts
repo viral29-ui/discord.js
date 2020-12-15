@@ -46,6 +46,10 @@ client.on('message', ({ channel }) => {
   channel.send();
   // @ts-expect-error
   channel.send({ another: 'property' });
+  // @ts-expect-error
+  channel.send({ another: 'property' }, {});
+  // @ts-expect-error
+  channel.send(Symbol('another primitive'), { split: true });
 });
 
 client.login('absolutely-valid-token');

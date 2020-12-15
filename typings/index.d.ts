@@ -993,7 +993,7 @@ declare module 'discord.js' {
     ): Promise<Collection<Snowflake, MessageReaction>>;
     public createReactionCollector(filter: CollectorFilter, options?: ReactionCollectorOptions): ReactionCollector;
     public delete(): Promise<Message>;
-    public edit(content: APIMessageContentResolvable | MessageEditOptions | MessageEmbed | APIMessage): Promise<Message>;
+    public edit(content: string | MessageEditOptions | MessageEmbed | APIMessage): Promise<Message>;
     public edit(content: string, options: MessageEditOptions | MessageEmbed): Promise<Message>;
     public equals(message: Message, rawData: object): boolean;
     public fetchWebhook(): Promise<Webhook>;
@@ -2177,8 +2177,7 @@ declare module 'discord.js' {
     type: 'BIG' | 'SMALL';
   }
 
-    type APIMessageContentResolvable = string | number | boolean | bigint | symbol | readonly string[];
-    interface AuditLogChange {
+  interface AuditLogChange {
     key: string;
     old?: any;
     new?: any;
